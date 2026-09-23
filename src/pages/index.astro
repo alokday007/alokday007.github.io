@@ -1,0 +1,129 @@
+---
+import site from "../data/site.json";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{site.title}</title>
+    <meta name="description" content={site.description} />
+    <link rel="canonical" href="https://alokday007.github.io/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={site.title} />
+    <meta property="og:description" content={site.description} />
+    <meta property="og:url" content="https://alokday007.github.io/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Spectral:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <h1>{site.name}</h1>
+        <p>{site.intro}</p>
+
+        <div class="measures">
+          {
+            site.measures.map((m) => (
+              <div class="measure">
+                <div class="figure">{m.figure}</div>
+                <div class="caption">{m.caption}</div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" id="work">
+        <div class="wrap">
+          <h2>Selected work</h2>
+
+          {
+            site.projects.map((p) => (
+              <article class="project">
+                <div class="rail">
+                  <div class="figure">{p.measure}</div>
+                  <div class="caption">{p.measureCaption}</div>
+                  <ul class="stack">
+                    {p.stack.map((s) => (
+                      <li>{s}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div class="entry">
+                  <h3>{p.name}</h3>
+                  <p class="meta">
+                    {p.kind} · {p.year}
+                    {p.status && <span class="status"> · {p.status}</span>}
+                  </p>
+
+                  <p class="body">{p.summary}</p>
+                  <p class="body">{p.detail}</p>
+
+                  <img
+                    class="shot"
+                    src={p.image}
+                    alt={p.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+
+                  {p.links.length > 0 && (
+                    <div class="links">
+                      {p.links.map((l) => (
+                        <a href={l.href} rel="noopener">
+                          {l.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="section about" id="about">
+        <div class="wrap">
+          <h2>About</h2>
+          {site.about.map((para) => <p>{para}</p>)}
+
+          <div class="practice">
+            {
+              site.practice.map((item) => (
+                <div>
+                  <h3>{item.heading}</h3>
+                  <p>{item.body}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="contact" id="contact">
+      <div class="wrap">
+        <p>Open to freelance work.</p>
+        <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+        <p class="colophon">
+          Built with Astro. <a href={site.github} rel="noopener">Source on GitHub</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

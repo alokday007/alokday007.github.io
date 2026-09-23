@@ -1,0 +1,119 @@
+{
+  "name": "Alok",
+  "title": "Alok — developer in Bengaluru",
+  "description": "Web applications and data tools. Python on the backend, TypeScript on the front end.",
+  "email": "alok.day.aus@gmail.com",
+  "github": "https://github.com/alokday007",
+
+  "intro": "I build web applications and data tools. Five of them are below, each with something it measures.",
+
+  "measures": [
+    { "figure": "₹90", "caption": "fare across 53.29 km" },
+    { "figure": "840", "caption": "kcal read from one photo" },
+    { "figure": "129.69", "caption": "index points forecast" },
+    { "figure": "360", "caption": "runs in the powerplay" },
+    { "figure": "0 KB", "caption": "JavaScript shipped" }
+  ],
+
+  "projects": [
+    {
+      "name": "Zencrest Realty",
+      "kind": "Client website",
+      "year": "2026",
+      "measure": "0 KB",
+      "measureCaption": "JavaScript in the build output",
+      "summary": "A marketing site for a Bengaluru real-estate firm, built and shipped end to end. Every page is static HTML and CSS — no client-side JavaScript ships at all.",
+      "detail": "All copy lives in a typed content file, so changes don't touch markup. Beyond the code: domain registration, DNS, business email, and a post-launch change round with the client.",
+      "stack": ["Astro", "Tailwind CSS 4", "Cloudflare Workers"],
+      "image": "/images/zencrest.png",
+      "alt": "Zencrest Realty homepage — navy hero with the headline 'Your trusted real estate partner in Bangalore'",
+      "links": [
+        { "label": "zencrestrealty.com", "href": "https://zencrestrealty.com" },
+        { "label": "Source", "href": "https://github.com/alokday007/zen-crest-realty" }
+      ]
+    },
+    {
+      "name": "Calorie Tracker",
+      "kind": "Nutrition app",
+      "year": "2026",
+      "status": "Private source",
+      "measure": "840",
+      "measureCaption": "kcal, identified from one photograph",
+      "summary": "A calorie tracker built around Indian subcontinent cuisine, which mainstream trackers cover badly. Photograph a plate and the model names each dish and estimates its nutrition.",
+      "detail": "The model suggests; the user decides. Nothing enters the log until it's confirmed from a preview. Gemini runs behind two server routes, so the API key never reaches the browser, and the log lives entirely in the browser — no accounts, no backend, no sync.",
+      "stack": ["Next.js 14", "React 18", "TypeScript", "Gemini 2.5 Flash"],
+      "image": "/images/calorie-tracker.png",
+      "alt": "Calorie Tracker identifying roti with ghee, mixed vegetable sabzi and dry whole lentil sabzi from a photograph, with per-item macros",
+      "links": []
+    },
+    {
+      "name": "food-price-intel",
+      "kind": "Forecasting service",
+      "year": "2026",
+      "status": "Paused",
+      "measure": "129.69",
+      "measureCaption": "forecast FAO index, August 2026",
+      "summary": "Forecasts the FAO Food Price Index three months ahead. SARIMA forecasts that beat a naive baseline at one-month horizon, scored with walk-forward validation rather than a single holdout.",
+      "detail": "Models are tested the way they'd actually be used: fit on what was known at the time, predict forward, move the window, repeat. The app forecasts from the last ingested FAO release, so the horizon trails the present date.",
+      "stack": ["Django", "PostgreSQL", "statsmodels", "Plotly.js"],
+      "image": "/images/food-price-intel.png",
+      "alt": "Line chart of the FAO Food Price Index — observed history in blue flowing into a red dashed SARIMA forecast",
+      "links": [
+        { "label": "Live forecast", "href": "https://food-price-intel.onrender.com/forecast/" },
+        { "label": "Source", "href": "https://github.com/alokday007/food-price-intel" }
+      ]
+    },
+    {
+      "name": "cric-metrics",
+      "kind": "Analytics dashboard",
+      "year": "2026",
+      "measure": "360",
+      "measureCaption": "runs, top scorer in the powerplay",
+      "summary": "Ball-by-ball IPL 2026 statistics, filterable by team and match phase. Counting stats recompute for the selected phase; whole-innings figures stay whole-innings.",
+      "detail": "Built from ball-by-ball data rather than match summaries, which is what makes the phase filtering possible at all.",
+      "stack": ["Python", "pandas", "Plotly", "Streamlit"],
+      "image": "/images/cric-metrics.png",
+      "alt": "Cricket dashboard showing top five powerplay run-scorers and a strike-rate scatter plot, filtered to Royal Challengers Bengaluru",
+      "links": [
+        { "label": "cric-metrics.streamlit.app", "href": "https://cric-metrics.streamlit.app" },
+        { "label": "Source", "href": "https://github.com/alokday007/cric-metrics" }
+      ]
+    },
+    {
+      "name": "Namma Metro Fare Calculator",
+      "kind": "Web app",
+      "year": "2025",
+      "measure": "₹90",
+      "measureCaption": "Whitefield to Bommasandra, 53.29 km",
+      "summary": "Fares between any two stations on Bengaluru's metro network. Computes distance, detects interchanges, and names which stations to change at.",
+      "detail": "The first substantial web project I deployed. Fares follow BMRCL distance slabs.",
+      "stack": ["Flask", "Python", "Render"],
+      "image": "/images/namma-metro.png",
+      "alt": "Fare calculator showing ₹90 for Whitefield to Bommasandra over 53.29 km, requiring two line changes",
+      "links": [
+        { "label": "Live app", "href": "https://namma-metro-fare-calculator.onrender.com/" },
+        { "label": "Source", "href": "https://github.com/alokday007/namma-metro-fare-calculator" }
+      ]
+    }
+  ],
+
+  "about": [
+    "I'm based in Bengaluru, with a master's in computer networking. I build web applications and data tools, mostly Python on the backend with TypeScript on the front end.",
+    "The work I like most is where the hard part is getting something correct and keeping it live, rather than getting it to render once."
+  ],
+
+  "practice": [
+    {
+      "heading": "Scoped phases",
+      "body": "Work goes out in phases with a written definition of done for each. It makes progress legible and stops scope drifting quietly."
+    },
+    {
+      "heading": "Verify what shipped",
+      "body": "I check the built output, the network tab and the live URL before calling something finished. What's deployed is what counts, not what's on my machine."
+    },
+    {
+      "heading": "Correct over time",
+      "body": "Log entries snapshot the data they were written against. Forecasts are scored on a rolling window. Design decisions that keep something true next month, not just today."
+    }
+  ]
+}
